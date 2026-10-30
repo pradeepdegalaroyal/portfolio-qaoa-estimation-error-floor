@@ -24,24 +24,42 @@ Blekos et al., 2024 (10.1016/j.physrep.2024.03.002) review QAOA variants. Wołk 
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#000000', 'secondaryColor': '#ffffff', 'tertiaryColor': '#ffffff', 'background': '#ffffff', 'noteBkgColor': '#ffffff', 'noteTextColor': '#000000', 'actorBkg': '#ffffff', 'actorBorder': '#000000', 'actorTextColor': '#000000', 'signalColor': '#000000', 'signalTextColor': '#000000', 'labelBoxBkgColor': '#ffffff', 'labelTextColor': '#000000', 'clusterBkg': '#ffffff', 'clusterBorder': '#000000'}}}%%
-mindmap
-  root(("Does estimation error hide<br/>QAOA optimisation error?"))
-    Method
-      "market.py: two-factor market,<br/>history of 24 to 600 months"
-      "study.py: score each portfolio<br/>in sample and out of sample"
-    Baselines
-      "exact, greedy, annealing,<br/>equal-shot random sampling"
-      "solvers.py: penalty QAOA on<br/>all 4096 bitstrings"
-    Variant
-      "Dicke start with ring XY mixer<br/>on the 5-asset subspace"
-    Metrics
-      "in-sample gap"
-      "out-of-sample regret and its<br/>optimisation share"
-    Ablations
-      "depth 1 versus 2"
-      "gate error 0 to 0.01"
-    Limits
-      "12 qubits, global depolarising<br/>noise, 6 market seeds"
+flowchart LR
+  N0["Does estimation error hide<br/>QAOA optimisation error?"]
+  N1["Method"]
+  N0 --> N1
+  N2["market.py: two-factor market,<br/>history of 24 to 600 months"]
+  N1 --> N2
+  N3["study.py: score each portfolio<br/>in sample and out of sample"]
+  N1 --> N3
+  N4["Baselines"]
+  N0 --> N4
+  N5["exact, greedy, annealing,<br/>equal-shot random sampling"]
+  N4 --> N5
+  N6["solvers.py: penalty QAOA on<br/>all 4096 bitstrings"]
+  N4 --> N6
+  N7["Variant"]
+  N0 --> N7
+  N8["Dicke start with ring XY mixer<br/>on the 5-asset subspace"]
+  N7 --> N8
+  N9["Metrics"]
+  N0 --> N9
+  N10["in-sample gap"]
+  N9 --> N10
+  N11["out-of-sample regret and its<br/>optimisation share"]
+  N9 --> N11
+  N12["Ablations"]
+  N0 --> N12
+  N13["depth 1 versus 2"]
+  N12 --> N13
+  N14["gate error 0 to 0.01"]
+  N12 --> N14
+  N15["Limits"]
+  N0 --> N15
+  N16["12 qubits, global depolarising<br/>noise, 6 market seeds"]
+  N15 --> N16
+  classDef bw fill:#ffffff,stroke:#000000,color:#000000,stroke-width:2px;
+  class N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12,N13,N14,N15,N16 bw;
 ```
 
 Legend: QAOA = Quantum Approximate Optimization Algorithm; XY = excitation-preserving two-qubit hopping mixer; Dicke = equal superposition of all 5-asset selections.
